@@ -1,0 +1,33 @@
+<doctype!>
+<html>
+<head>
+	<title><canvas> example 1 </title>
+</head>
+<body>
+	<!-- This is all the HTML you need -->
+	<canvas id="square" width="300" height="300"></canvas>
+
+	<!-- CSS to center the canvas -->
+	<style>
+		canvas{ 
+			border: black solid 2px;
+			display: block;
+			margin: auto;
+		}
+	</style>
+
+	<!-- Some JavaScript to draw! -->
+	<script>
+
+	var canvas = document.getElementById("square");
+	var context = canvas.getContext('2d');
+
+	context.fillStyle = "blue"
+	// fillRect(x, y, width, height)
+	context.fillRect(25, 25, 100, 100)
+
+	context.fillStyle = "purple"
+	context.fillRect(50, 50, 100, 100)
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<doctype!>
+<html>
+<head>
+	<title><canvas> example 2 </title>
+</head>
+<body>
+	<!-- This is all the HTML you need -->
+	<canvas id="square" width="300" height="300"></canvas>
+
+	<!-- CSS to center the canvas -->
+	<style>
+		canvas{ 
+			border: black solid 2px;
+			display: block;
+			margin: auto;
+		}
+	</style>
+
+	<!-- Some JavaScript to draw! -->
+	<script>
+
+	// set up canvas
+	var canvas = document.getElementById("square");
+	var context = canvas.getContext('2d');
+
+	// create images 
+	var sprite1 = new Image(); 
+	sprite1.src = './sprites/forward1.png'
+
+	var sprite2 = new Image(); 
+	sprite2.src = './sprites/forward2.png'
+
+	var counter = 0;
+	run();
+
+	function run(){
+		switch(counter % 2){
+			case 0:
+				drawSprite(sprite1);
+				break; 
+			case 1: 
+				drawSprite(sprite2);
+				break; 
+		}
+		counter++; 
+		setTimeout(run, 400);
+	}
+
+	function drawSprite(image){
+		clearCanvas();
+		context.drawImage(image, 0, 0);
+	}
+
+	function clearCanvas(){
+		context.fillStyle = "white";
+		context.fillRect(0, 0, 300, 300);
+	}
+
+	</script>
+</body>
+</html>
